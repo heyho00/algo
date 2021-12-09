@@ -5,13 +5,34 @@
   </head>
   <body>
     <script>
+      "100이하의 자연수 A, B, C를 입력받아 세 수 중 가장 작은 값을 출력하는 프로그램을 작성하 세요.(정렬을 사용하면 안됩니다)";
+
       function solution(a, b, c) {
-        let answer = "ㅎㅇ";
+        let answer;
+
+        if (a > b) {
+          if (b > c) {
+            answer = c;
+          } else {
+            answer = b;
+          }
+        } else {
+          if (a < c) {
+            answer = a;
+          } else {
+            answer = c;
+          }
+        }
 
         return answer;
       }
 
-      console.log(solution(2, 5, 1));
+      console.log(solution(9, 5, 3));
+      console.log(solution(9, 3, 5));
+      console.log(solution(5, 9, 3));
+      console.log(solution(5, 3, 9));
+      console.log(solution(3, 5, 9));
+      console.log(solution(3, 9, 5));
     </script>
   </body>
 </html>
