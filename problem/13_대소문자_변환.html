@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      "대문자와 소문자가 같이 존재하는 문자열을 입력받아 대문자는 소문자로 소문자는 대문자로 변환하여 출력하는 프로그램을 작성하세요.";
+
+      function solution(word) {
+        let answer = "";
+
+        word.split("").forEach((a) => {
+          a === a.toUpperCase()
+            ? (answer += a.toLowerCase())
+            : (answer += a.toUpperCase());
+        });
+
+        return answer;
+      }
+
+      document.write(solution("sTUdy"), "<br>");
+    </script>
+  </body>
+</html>
