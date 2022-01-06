@@ -9,7 +9,7 @@
 
       function solution(word, alpha) {
         let answer = [];
-        let p = 1000;
+        let p = 0;
 
         for (let x of word) {
           if (x === alpha) {
@@ -21,7 +21,7 @@
           }
         }
 
-        p = 1000;
+        p = 0;
         for (let i = word.length - 1; i >= 0; i--) {
           if (word[i] === alpha) {
             p = 0;
