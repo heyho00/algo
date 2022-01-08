@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      "문제";
+
+      function solution(arr) {
+        let answer = arr[i];
+        let answerSum = 0;
+
+        for (let i = 0; i < arr.length - 1; i++) {
+          let sum = 0;
+          for (let j = 0; j < arr[i].length; j++) {
+            sum += arr[i][j];
+          }
+          console.log(sum);
+        }
+
+        return answer;
+      }
+
+      document.write(solution([128, 460, 603, 40, 521, 137, 123]), "<br>");
+    </script>
+  </body>
+</html>
