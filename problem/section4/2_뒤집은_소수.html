@@ -9,18 +9,18 @@
 
       function solution(arr) {
         let answer = [];
+        let notSosu = [];
 
         for (x of arr) {
           let reverse = x.toString().split("").reverse().join("") - 0;
+          answer.push(reverse);
 
           for (let i = 2; i <= reverse / 2; i++) {
-            console.log(reverse % i);
-            if (reverse % i !== 0 && answer.indexOf(reverse) === -1) {
-              answer.push(reverse);
-            }
+            reverse % i === 0 && (notSosu.indexOf(reverse) === -1) && (notSosu.push(reverse))
           }
         }
-
+       
+        answer = answer.filter((n) => n!==1 && notSosu.indexOf(n) ===-1)
         return answer;
       }
 
