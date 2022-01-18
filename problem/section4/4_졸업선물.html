@@ -7,33 +7,30 @@
     <script>
       "문제";
 
-      function solution(arr) {
+      function solution(yesan, product) {
         let answer = 0;
-        let students = arr[0][0];
-        let yesan = arr[0][1];
-        let sum = 0;
-        let max = 0;
+        let n = product.length;
 
-        for (let i = 1; i < arr.length; i++) {
-          sum += arr[i][0] + arr[i][1];
-        }
+        product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+        for (let i = 0; i < n; i++) {
+          let money = yesan - (product[i][0] / 2 + product[i][1]);
+          let cnt = 1;
 
-        for (let j = 1; j < arr.length; j++) {
-          let n = arr[j][0] / 2;
-
-          if (sum - n < yesan && max < sum - n) {
-            max = sum - n / 2;
-            console.log(1);
-            answer = max;
+          for (let j = 0; j < n; j++) {
+            if (j !== i && product[j][0] + product[j][1] > money) break;
+            if (j !== i && product[j][0] + product[j][1] <= money) {
+              money -= product[j][0] + product[j][1];
+              cnt++;
+            }
           }
+          answer = Math.max(answer, cnt);
         }
 
         return answer;
       }
 
       document.write(
-        solution([
-          [5, 28],
+        solution(28, [
           [6, 6],
           [2, 2],
           [4, 3],
