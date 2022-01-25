@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      "A, B 두 개의 집합이 주어지면 두 집합의 공통 원소를 추출하여 오름차순으로 출력하는 프로 그램을 작성하세요.";
+
+      function solution(arr1, arr2) {
+        let answer = [];
+        let arr = [];
+
+        for (let i = 0; i < arr1.length; i++) {
+          for (let j = 0; j < arr2.length; j++) {
+            if (arr1[i] === arr2[j]) {
+              arr.push(arr1[i]);
+            }
+          }
+        }
+        answer = arr.sort((a, b) => a - b);
+        return answer;
+      }
+
+      //expected [2,3,5]
+      document.write(solution([1, 3, 9, 5, 2], [3, 2, 5, 7, 8]), "<br>");
+    </script>
+  </body>
+</html>
