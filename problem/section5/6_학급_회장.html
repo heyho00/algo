@@ -15,17 +15,11 @@
         let sH = new Map();
         let max = 0;
 
-        // str.forEach((s) => {
-        //   console.log(s);
-        // });    //forEach는 배열에만 쓰인다..이렇게쓰면 에러.
-        //이렇게 쓰면 한글자씩 가능..!
         for (let x of str) {
-          if (sH.has(x)) {
-            sH.set(x, sH.get(x) + 1);
-          } else {
-            sH.set(x, 1);
-          }
+          if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+          else sH.set(x, 1);
         }
+        console.log(sH);
 
         for (let [key, val] of sH) {
           if (val > max) {
@@ -34,6 +28,28 @@
           }
         }
         return answer;
+
+        // str.forEach((s) => {
+        //   console.log(s);
+        // });    //forEach는 배열에만 쓰인다..이렇게쓰면 에러.
+        //이렇게 쓰면 한글자씩 가능..!
+
+        //답
+        // for (let x of str) {
+        //   if (sH.has(x)) {
+        //     sH.set(x, sH.get(x) + 1);
+        //   } else {
+        //     sH.set(x, 1);
+        //   }
+        // }
+
+        // for (let [key, val] of sH) {
+        //   if (val > max) {
+        //     max = val;
+        //     answer = key;
+        //   }
+        // }
+        // return answer;
       }
 
       document.write(solution("BACBACCACCBDEDE"), "<br>");
