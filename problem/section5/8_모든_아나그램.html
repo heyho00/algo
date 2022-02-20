@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      `S문자열에서 T문자열과 아나그램이 되는 S의 부분문자열의 개수를 구하는 프로그램을
+       작성하 세요. 아나그램 판별시 대소문자가 구분됩니다. 부분문자열은 연속된
+       문자열이어야 합니다.
+       S단어에 T문자열과 아나그램이 되는 부분문자열의 개수를 출력합니다.
+       출력설명: {bac}, {acb}, {cba} 3개의 부분문자열이 "abc"문자열과 아나그램입니다.
+       `;
+
+      function solution(Sstr, Tstr) {
+        let answer = 0;
+        let l = Tstr.length;
+
+        for (let i = 0; i < Sstr.length - l; i++) {
+          let word = Sstr.slice(i, i + l);
+          sH = new Map();
+          tH = new Map();
+          aH = new Map();
+
+          for (let x of word) {
+            if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+            else sH.set(x, 1);
+          }
+
+          for (let x of Tstr) {
+            if (tH.has(x)) sH2.set(x, sH2.get(x) + 1);
+            else tH.set(x, 1);
+          }
+
+          for (let x of sH) {
+            if (sH.get(x) === tH.get(x)) aH.set(x, 1);
+            else aH.set(x, 0);
+          }
+
+          console.log(aH);
+        }
+
+        return answer;
+      }
+
+      // 1. Tstr의 길이가 짧거나 같으니, T의 길이만큼 S를 잘라
+      // 2. 아나그램인지 확인하고
+      // 3. 반복한다.
+      document.write(solution("bacaAacba", "abc"), "<br>");
+    </script>
+  </body>
+</html>
