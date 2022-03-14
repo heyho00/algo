@@ -8,20 +8,32 @@
       `입력된 문자열에서 소괄호 ( ) 사이에 존재하는 모든 문자를 제거하고 남은 문자만 출력하는 프로그램을 작성하세요.`;
 
       function solution(word) {
-        let answer = "";
-        let brack = 0;
+        // 내풀이
+        // let answer = "";
+        // let brack = 0;
 
-        for (let x of word) {
-          x === "(" && brack++;
-          x === ")" && brack--;
-          console.log(brack);
+        // for (let x of word) {
+        //   x === "(" && brack++;
+        //   x === ")" && brack--;
 
-          x !== "(" && x !== ")" && brack === 0 && (answer += x);
+        //   x !== "(" && x !== ")" && brack === 0 && (answer += x);
+        // }
+
+        // return answer;
+
+        let answer=''
+        stack=[];
+
+        for(let x of word){
+          if(x===')'){
+            while(stack.pop()!=='(');
+          }
+          else stack.push(x);
         }
-
-        console.log(answer);
+        answer=stack.join('');
         return answer;
       }
+
       //EFLM
       document.write(solution("A(A(BC)D)EF(G(H)(IJ)K)LM(N)"), "<br>");
     </script>
