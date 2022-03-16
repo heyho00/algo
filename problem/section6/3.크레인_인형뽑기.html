@@ -8,26 +8,46 @@
       "문제";
 
       function solution(board, move) {
-        let answer;
-        let pocket = [];
+        // 내풀이
+        // let answer;
+        // let pocket = [];
 
-        for (let moveNum of move) {
-          for (let x = 0; x < board.length; x++) {
-          
+        // for (let moveNum of move) {
+        //   for (let x = 0; x < board.length; x++) {
 
-            if ( board[x][moveNum - 1] !== 0) {
-              pocket.push( board[x][moveNum - 1]);
-              board[x].splice(move - 1, 1, 0);
-              
-              console.log(board)//첫라인의 4가 없어지면서 콘솔찍혀야되는데 그 밑에 3도 사라지네...;
-              //모야gggggg
+        //     if ( board[x][moveNum - 1] !== 0) {
+        //       pocket.push( board[x][moveNum - 1]);
+        //       board[x].splice(move - 1, 1, 0);
+
+        //       console.log(board)//첫라인의 4가 없어지면서 콘솔찍혀야되는데 그 밑에 3도 사라지네...;
+
+        //       break;
+        //     }
+        //     // console.log(board)
+
+        //   }
+
+        // }
+
+        // return answer;
+
+        let answer = 0;
+        let stack = [];
+
+        move.forEach((pos) => {
+          for (let i = 0; i < board.length; i++) {
+            if (board[i][pos - 1] !== 0) {
+              let tmp = board[i][pos - 1];
+              board[i][pos - 1] = 0;
+
+              if (tmp === stack[stack.length - 1]) {
+                stack.pop();
+                answer += 2;
+              } else stack.push(tmp);
               break;
             }
-            // console.log(board)
-            
           }
-          
-        }
+        });
 
         return answer;
       }
