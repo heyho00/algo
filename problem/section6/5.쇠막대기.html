@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      "문제";
+
+      function solution(brack) {
+        let answer = 0;
+
+        for (let i = 0; i < brack.length - 1; i++) {
+          console.log(brack);
+          if (brack[i] === "(" && brack[i + 1] === ")") {
+            brack.splice(i, 0, "1");
+          } else {
+        }
+
+        console.log(brack);
+        return answer;
+      }
+      // 17
+      // 괄호를 하나씩 돌면서
+      // 짝이맞는 괄호를 찾아내
+      // 그 사이에 있는 레이저 수만큼 잘랐을때
+      // 레이저를 따로 표시해버릴까,.
+      // 생기는 조각수를 더해간다.
+      document.write(solution("()(((()())(())()))(())"), "<br>");
+    </script>
+  </body>
+</html>
