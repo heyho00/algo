@@ -7,17 +7,35 @@
     <script>
       "문제";
 
-      function solution(brack) {
+      // function solution(brack) {
+      //   let answer = 0;
+      //   let one = "";
+
+      //   for (let i = 0; i < brack.length - 1; i++) {
+      //     if (brack[i] === "(" && brack[i + 1] === ")") {
+      //       if (i === 0) {
+      //         one = one[0] + "1" + brack.substring(i + 1);
+      //       } else one = one.substring(0, i) + "1" + one.substring(i + 1);
+      //     } else one += brack[i];
+
+      //     console.log(one);
+      //   }
+      //   return answer;
+      // }
+
+      //답
+      function solution(s) {
         let answer = 0;
-
-        for (let i = 0; i < brack.length - 1; i++) {
-          console.log(brack);
-          if (brack[i] === "(" && brack[i + 1] === ")") {
-            brack.splice(i, 0, "1");
-          } else {
+        let stack = [];
+        for (let i = 0; i < s.length; i++) {
+          if (s[i] === "(") stack.push("(");
+          else {
+            stack.pop();
+            if (s[i - 1] === "(") answer += stack.length;
+            else answer++;
+            //stack.pop(); 이 위치에 하면 레이저까지 카운팅한다.
+          }
         }
-
-        console.log(brack);
         return answer;
       }
       // 17
