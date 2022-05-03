@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      "문제";
+
+      // function solution(brack) {
+      //   let answer = 0;
+      //   let one = "";
+
+      //   for (let i = 0; i < brack.length - 1; i++) {
+      //     if (brack[i] === "(" && brack[i + 1] === ")") {
+      //       if (i === 0) {
+      //         one = one[0] + "1" + brack.substring(i + 1);
+      //       } else one = one.substring(0, i) + "1" + one.substring(i + 1);
+      //     } else one += brack[i];
+
+      //     console.log(one);
+      //   }
+      //   return answer;
+      // }
+
+      //답
+      // function solution(s) {
+      //   let answer = 0;
+      //   let stack = [];
+
+      //   for (let i = 0; i < s.length; i++) {
+      //     if (s[i] === "(") stack.push("(");
+      //     else {
+      //       stack.pop();
+      //       if (s[i - 1] === "(") answer += stack.length;
+      //       else answer++;
+      //       //stack.pop(); 이 위치에 하면 레이저까지 카운팅한다.
+      //     }
+      //   }
+      //   return answer;
+      // }
+
+      function solution(s) {
+        let answer = 0;
+        let stack = [];
+
+        for (let i = 0; i < s.length; i++) {
+          if (s[i] === "(") stack.push("(");
+          else {
+            stack.pop();
+            if (s[i - 1] === "(") answer += stack.length;
+            else answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      // 17
+      // 괄호를 하나씩 돌면서
+      // 짝이맞는 괄호를 찾아내
+      // 그 사이에 있는 레이저 수만큼 잘랐을때
+      // 레이저를 따로 표시해버릴까,.
+      // 생기는 조각수를 더해간다.
+      document.write(solution("()(((()())(())()))(())"), "<br>");
+    </script>
+  </body>
+</html>

@@ -14,19 +14,31 @@
 
       function solution(arr, num) {
         let answer = 0;
-        let cnt = 0;
 
         for (let i = 0; i < arr.length; i++) {
-          for (let j = 1; j <= arr.length; j++) {
-
+          for (let j = i + 1; j <= arr.length; j++) {
+            let sum = 0;
             let sliceArr = arr.slice(i, j);
-            sliceArr.forEach((n) => );
+
+            // for (let k = 0; k < sliceArr.length; k++) {
+            //   sum += sliceArr[k];
+            // }
+
+            sliceArr.forEach((n) => {
+              //forEach는 for문이랑 똑같다! 따로 변수에 담지 않는다.!
+              sum += n;
+            });
+            console.log(sum);
+
+            // console.log(sum);
+            sum <= num && answer++;
+
+            // sliceArr.length > 0 && console.log(sliceArr); // sliceArr !==[] 계속 이 조건으로 했는데 안된다.. 빈배열이 콘솔찍힌다.
           }
         }
 
         //1. 5개의 요소가 있으면 그 요소들 조합의 경우의수 전부를 구한다.(나올 수있는 배열)
         //2. 나온 배열들의 요소들의 합이 5이하이면 해당 배열을 return한다. -> cnt++
-        //3.
         return answer;
       }
       //   expected 10
