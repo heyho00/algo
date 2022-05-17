@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      `N개의 정수가 입력되면 당신은 입력된 값을 정렬해야 한다.
+      음의 정수는 앞쪽에 양의정수는 뒷쪽에 있어야 한다. 또한 양의정수와 음의정수의 순서에는 변함이 없어야 한다.`;
+
+      function solution(arr) {
+        let answer = [];
+        let minus = [];
+        let plus = [];
+
+        arr.forEach((n, idx) => {
+          if (n < 0) {
+            minus.push(n);
+          } else {
+            plus.push(n);
+          }
+        });
+
+        answer = [...minus, ...plus];
+
+        return answer;
+      }
+
+      document.write(solution([1, 2, 3, -3, -2, 7, 6, -6]), "<br>");
+    </script>
+  </body>
+</html>

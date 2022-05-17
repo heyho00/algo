@@ -11,14 +11,25 @@
       이렇게 해서 마지막까지 남은 왕자가 공주를 구하러 갈 수 있다.`;
 
       function solution(n, k) {
+        // let answer;
+        // let arr = [];
+
+        // for (let i = 1; i <= 8; i++) {
+        //   arr.push(i);
+        // }
+
+        // for (let j = 0; j <= 8; j++) {
+        //   arr = [...arr.slice(k), ...arr.slice(0, k - 1)];
+        //   console.log(arr);
+        // }
+
+        // return answer;
+
         let answer;
         let queue = Array.from({ length: n }, (v, i) => i + 1);
 
         while (queue.length) {
-          for (let i = 1; i < k; i++) {
-            queue.push(queue.shift());
-            console.log(queue);
-          }
+          for (let i = 1; i < k; i++) queue.push(queue.shift());
           queue.shift();
           if (queue.length === 1) answer = queue.shift();
         }
