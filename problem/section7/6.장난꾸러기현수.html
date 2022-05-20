@@ -14,17 +14,17 @@
       function solution(arr) {
         let answer = [];
 
-        arr.forEach((n, idx) => {
-          if (n < arr[idx - 1]) {
-            // answer.pop();
-            answer.push(idx);
-          }
-        });
+        let sortArr = arr.slice();
+
+        sortArr.sort((a, b) => a - b);
+
+        for (let i = 0; i < arr.length; i++) {
+          arr[i] !== sortArr[i] && answer.push(i + 1);
+        }
 
         return answer;
       }
 
-      // 짝꿍 찾는건 쉽다. 앞 뒤
       // 3,8 출력.
 
       // 120 130 150 150 130 150
@@ -36,3 +36,6 @@
     </script>
   </body>
 </html>
+
+<!-- 친구는 무조건 앞보다 이하, 뒤 미만
+현수는 앞보다 초과, 뒤보다 이상 -->
