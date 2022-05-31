@@ -13,34 +13,36 @@
          `;
 
       function solution(arr) {
-        let answer;
+        let answer = 0;
         let queue = [];
 
-        arr.sort((a, b) => a[0] - b[0]); // 오름차순 정렬.
+        arr.sort((a, b) => {
+          if (a[1] === b[1]) return a[0] - b[0];
+          else return a[1] - b[1];
+        });
 
-        for (let i = 0; i < arr.length; i++) {
-          //   console.log(arr[i]);
-          if (i === 0) {
-            queue.push(arr[i]);
-          } else {
-            if (arr[i][0] >= arr[i - 1][1]) {
-            }
+        let et = 0;
+        for (let x of arr) {
+          if (x[0] >= et) {
+            answer++;
+            et = x[1];
           }
         }
+
         return answer;
       }
 
       //3출력 (2,3 / 3,5 / 5,7)
       document.write(
         solution([
-          [3, 3],
+          // [3, 3],
+          // [2, 3],
+          // [1, 3],
+          [1, 4],
           [2, 3],
-          [1, 3],
-          //   [1, 4],
-          //   [2, 3],
-          //   [3, 5],
-          //   [4, 6],
-          //   [5, 7],
+          [3, 5],
+          [4, 6],
+          [5, 7],
         ]),
         "<br>"
       );
@@ -54,3 +56,9 @@
 23
 
 출력: 2 -->
+
+<!-- 끝나는 시간으로 정렬해야한다. 빨리 끝나야 다음시간에 또 다른 회의를 할 수 있으니까. 
+
+    끝나는 시간으로 정렬하다가 같은 시간대가 있으면 그 두개를 시작시간 기준으로 오름차순한다.
+    그래야 위의 예외처리가 가능하니까.
+-->
