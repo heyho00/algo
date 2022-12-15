@@ -15,4 +15,18 @@
 //   return answer;
 // }
 
+function solution(arr) {
+  let answer = arr;
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length - 1; j++) {
+      if (arr[i] + arr[j] === 40) {
+        answer.splice(i, 1);
+        answer.splice(j - 1, 1);
+        return answer;
+      }
+    }
+  }
+}
+
 console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13]));
