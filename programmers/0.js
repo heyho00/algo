@@ -2,19 +2,17 @@
 // node 0.js
 
 function solution(n) {
-    let num = n
-    let i = 2
-    let answer = []
-
-    while (num % i == 0) {
-        answer.push(i)
-        num = num / i
-        num % i !== 0 && i++
+    let i = 1;
+    let f = 1;
+    while (f * i < n) {
+        console.log(i, '11')
+        f *= ++i
+        console.log(i, f, '22')
     }
 
-    return answer.length ? [...new Set(answer)] : [n]
+    return i;
 }
 
-console.log(solution(12))
-console.log(solution(17))
-console.log(solution(420))
+console.log(solution(3628800))
+console.log(solution(7)) //3
+
