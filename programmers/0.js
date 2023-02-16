@@ -2,17 +2,19 @@
 // node 0.js
 
 function solution(n) {
-    let i = 1;
-    let f = 1;
-    while (f * i < n) {
-        console.log(i, '11')
-        f *= ++i
-        console.log(i, f, '22')
+    let dp = new Array(n+1).fill(1)
+    // console.log(dp)
+    for(let i = 2 ; i <= n ; i++){
+        if(dp[i]){
+            for(let j = 2 ; i*j <= n ; j++){
+                dp[i*j] = 0
+            }
+        }
     }
 
-    return i;
+    return dp.filter(el => el === 0).length
 }
 
-console.log(solution(3628800))
-console.log(solution(7)) //3
+console.log(solution(15))
+// console.log(solution(7)) 
 
