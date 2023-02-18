@@ -1,17 +1,15 @@
 // 연습장 
 // node 0.js
 
-function solution(nums, direc) {
-    numbers = [...nums, ...nums]
-    let leng = nums.length
-
-    if (direc === 'right') {
-        return numbers.splice(leng - 1, leng)
-    }
-    return numbers.splice(1, leng)
+function solution(nums, k) {
+   while(nums.length < k*3){
+    nums = [...nums,...nums]
+   }
+   console.log(nums,)
+   return nums[(2*k)-2]
 }
 
 
-console.log(solution([1, 2, 3], 'right'))
-console.log(solution([4, 455, 6, 4, -1, 45, 6], 'left'))
+console.log(solution([1, 2, 3, 4], 2))
+
 
