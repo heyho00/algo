@@ -1,20 +1,16 @@
 // 연습장 
 // node 0.js
 
-// function solution(nums, k) {
-//    let answer = []
-//    while(nums.length){
-//       answer.push(nums.splice(0,k))
-//    }
-//    return answer
-// }
-
-function solution(num_list, n) {
-    return Array(num_list.length / n).fill(0).map(() => num_list.splice(0, n))
+function solution(dot) {
+    const [a, b] = dot
+    if (a < 0) {
+        if (b < 0) return 3
+        else return 2
+    } else {
+        if (b < 0) return 4
+        else return 1
+    }
 }
 
 
-// console.log(solution([1, 2, 3, 4, 5, 6, 7, 8], 2))
-
-
-console.log(solution([100, 95, 2, 4, 5, 6, 18, 33, 948],3))
+console.log(solution([7, 8]))
