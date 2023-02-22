@@ -1,16 +1,22 @@
 // 연습장 
 // node 0.js
 
-function solution(dot) {
-    const [a, b] = dot
-    if (a < 0) {
-        if (b < 0) return 3
-        else return 2
-    } else {
-        if (b < 0) return 4
-        else return 1
+function solution(n, m) {
+    let za = 1
+    let mo = 1
+    let num = n
+
+    while(num> n-m){
+        za*=num
+        num--
     }
+
+    while(m>0){
+        mo*=m--
+    }
+    
+    return za/mo   
 }
 
 
-console.log(solution([7, 8]))
+console.log(solution(5,3)) //3
