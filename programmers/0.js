@@ -1,22 +1,23 @@
 // 연습장 
 // node 0.js
 
-function solution(n, m) {
-    let za = 1
-    let mo = 1
-    let num = n
-
-    while(num> n-m){
-        za*=num
-        num--
+function solution(rsp) {
+    let answer = ''
+    for (let x of rsp){
+         switch(x) {
+        case '0' :
+            answer+='5'
+            break;
+        case '2' :
+            answer+='0'
+            break;
+        case '5' :
+            answer+='2'
+            break;
+        }
     }
-
-    while(m>0){
-        mo*=m--
-    }
-    
-    return za/mo   
+    return answer
 }
 
 
-console.log(solution(5,3)) //3
+console.log(solution('205')) // '0'
