@@ -4,18 +4,25 @@
 
 
 
-function solution(dot) {
-    morse = {
-        '.-': 'a', '-...': 'b', '-.-.': 'c', '-..': 'd', '.': 'e', '..-.': 'f',
-        '--.': 'g', '....': 'h', '..': 'i', '.---': 'j', '-.-': 'k', '.-..': 'l',
-        '--': 'm', '-.': 'n', '---': 'o', '.--.': 'p', '--.-': 'q', '.-.': 'r',
-        '...': 's', '-': 't', '..-': 'u', '...-': 'v', '.--': 'w', '-..-': 'x',
-        '-.--': 'y', '--..': 'z'
+function solution(hp) {
+    let answer = 0
+
+    while (hp >= 5) {
+        hp -= 5
+        answer++
     }
 
-    return dot.split(' ').map(w => morse[w]).join('')
+    while (hp >= 3) {
+        hp -= 3
+        answer++
+    }
 
+    while (hp >= 1) {
+        hp -= 1
+        answer++
+    }
+
+    return answer
 }
 
-
-console.log(solution(".... . .-.. .-.. ---")) //hello
+console.log(solution(999)) 
