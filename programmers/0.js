@@ -1,16 +1,21 @@
 // 연습장 
 // node 0.js
 
+
+
+
 function solution(dot) {
-    const [a, b] = dot
-    if (a < 0) {
-        if (b < 0) return 3
-        else return 2
-    } else {
-        if (b < 0) return 4
-        else return 1
+    morse = {
+        '.-': 'a', '-...': 'b', '-.-.': 'c', '-..': 'd', '.': 'e', '..-.': 'f',
+        '--.': 'g', '....': 'h', '..': 'i', '.---': 'j', '-.-': 'k', '.-..': 'l',
+        '--': 'm', '-.': 'n', '---': 'o', '.--.': 'p', '--.-': 'q', '.-.': 'r',
+        '...': 's', '-': 't', '..-': 'u', '...-': 'v', '.--': 'w', '-..-': 'x',
+        '-.--': 'y', '--..': 'z'
     }
+
+    return dot.split(' ').map(w => morse[w]).join('')
+
 }
 
 
-console.log(solution([7, 8]))
+console.log(solution(".... . .-.. .-.. ---")) //hello
