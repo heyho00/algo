@@ -1,16 +1,8 @@
 // 연습장 
 // node 0.js
 
-function solution(n) {
-  let cnt =1
-  let answer="\n"
-
-  while(cnt<=n){
-    answer += '*'.repeat(cnt) +'\n'
-    cnt++
-  }
-
-  return answer
+function solution(str) {
+ return str.split('').reverse().join('')
 }
 
-console.log(solution(3)) 
+console.log(solution('jaron')) 
