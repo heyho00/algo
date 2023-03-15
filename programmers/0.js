@@ -1,21 +1,13 @@
 // 연습장
 // node 0.js
 
-function solution(arr) {
-  let obj = {};
-  let answer = [];
-
-  arr.forEach((n) => {
-    obj[n] == undefined ? (obj[n] = 1) : (obj[n] += 1);
-  });
-
-  let value = Math.max(...Object.values(obj));
-
-  for (let x in obj) {
-    obj[x] === value && answer.push(x);
+function solution(n1, d1, n2, d2) {
+  if (d2 % d1 === 0) {
+    n1 *= (d2 / d1)
+    d1 *= (d2 / d1)
   }
-
-  return answer.length > 1 ? -1 : Number(answer[0]);
+  console.log(n1, d1, 'sss')
+  return
 }
 
-console.log(solution([1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3, 4]));
+console.log(solution(1, 2, 3, 4));
